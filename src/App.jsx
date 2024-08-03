@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState,useEffect } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name,setName] =useState('');
+  const  [storedName, setStoredName] =useState('');
+
+  useEffect (()=>{
+    const getCookie =(name)=>{
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    };
+    const nameCookie =getCookie('name');
+    if (nameCookie) {
+      setStoredName(nameCookie);
+    }
+  }, []);
+
+  const handleInputChange = (event) =>{
+    setName(event.target.value);
+  };
+
+  const handleSubmit = ()=>{
+    document.cookie = `name=${name}; path=/; expires=Fri, 31 Dec 2040 23:59:59 GMT`;
+    setStoredName(name);
+    setName('');
+  }
 
   return (
-    <>
+    <div className='main'>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <label htmlFor="name" className=''>name</label>
+        <input type="text" className="" id='name'value={name} onChange={handleInputChange} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+       <button type="submit" className='' onClick={handleSubmit}>submit</button>
+       {storedName &&(
+        <div className=''>
+          <p>Name: {storedName}</p>
+        </div>
+       )}
+    </div>
+  );
 }
 
-export default App
+export default App;
