@@ -8,7 +8,8 @@ function Header(){
             </div>
             <div className="kiri">
                 <p>applikasi untuk ngepick nama</p>
-                
+                <a href=""></a>
+                <a href="">about</a>
             </div>
         </div>
     )
