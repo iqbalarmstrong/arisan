@@ -1,6 +1,21 @@
 .header{
+    font-family: "Grey Qo", cursive;
+    background-color: burlywood;
     padding: 0;
     margin: 0;
-    background-color: aquamarine;
-    
+    display: flex;
+    justify-content: space-between;
+}
+.kanan{
+ margin-left: 10px;
+}
+.kiri{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+.link{
+    display: flex;
+    margin: 10px 5px 10px 5px;
 }
