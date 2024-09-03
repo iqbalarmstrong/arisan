@@ -1,6 +1,7 @@
 .header{
-    font-family: "Grey Qo", cursive;
-    background-color: burlywood;
+    font-family: "EB Garamond", serif;
+    background-color: black;
+    color: white;
     padding: 0;
     margin: 0;
     display: flex;

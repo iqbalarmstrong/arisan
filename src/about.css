@@ -1,0 +1,23 @@
+.about-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+  
+  .about-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .about-container p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  
